@@ -413,4 +413,3 @@ function handleDisplay(arr){
     name_person_choice.innerHTML = `${choose_one}`;
     name_computer_choice.innerHTML = `${choose_two}`;
 }
-
