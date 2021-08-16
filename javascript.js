@@ -243,6 +243,10 @@ let computer_score = document.querySelector('#computer_score');
 let result = document.querySelector('#result');
 let person__choice = document.querySelector('#person__choice');
 let computer__choice = document.querySelector('#computer__choice');
+let audio_win = document.querySelector('#audio_win');
+let audio_loss = document.querySelector('#audio_loss');
+let audio_even = document.querySelector('#audio_even');
+
 let ScoreUser = 0, ScoreComputer = 0;
 const colors = [
     "#00aefd","#ffa400","#07a787", "black", "red","#2979ff", ];
@@ -314,6 +318,7 @@ function checkWinLost(arr)
     });
 }
 
+// Xử lý điểm
 function handleScore(arr)
 {
     let win = '';
@@ -359,22 +364,44 @@ function handleScore(arr)
     if(win === 'win')
     {   
         startConfetti();
+		RemoveAudio();
+		audio_win.play();
         result.innerHTML = `${wins[Math.floor(Math.random() * wins.length)]}`;
         ScoreUser++;
     }
     else if(win === 'lost')
     {
         stopConfetti();
+		RemoveAudio();
+		audio_loss.play();
         result.innerHTML = `${loss[Math.floor(Math.random() * loss.length)]}`;
         ScoreComputer++;
     }
     else
-        result.innerHTML = "Hòa thôi Win đâu dễ";
+	{
+		result.innerHTML = "Hòa thôi Win đâu dễ";
+		RemoveAudio();
+		audio_even.play();
+	}
+       
     person_score.innerHTML = `${ScoreUser}`;
     computer_score.innerHTML = `${ScoreComputer}`;
 
 }
 
+// Remove Audio
+function RemoveAudio()
+{
+	audio_win.currentTime = 0;
+	audio_win.pause();
+	audio_loss.currentTime = 0;
+	audio_loss.pause();
+	audio_even.currentTime = 0;
+	audio_even.pause();
+}
+
+
+// Xử lý hiển thị
 function handleDisplay(arr){
     color_person.setAttribute('style', 'display:block');
     color_computer.setAttribute('style', 'display:block');
