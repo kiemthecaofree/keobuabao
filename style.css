@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Muli, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #28a746a1;
+}
+
+.keobuabao{
+    width: 530px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+h1{
+    margin: 0;
+}
+.keobuabao__title{
+    background-color: #17a2b8;
+    padding: 30px 0px;
+    text-align: center;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.person__computer{
+    margin: 40px 40px;
+
+}
+
+.person__score, .computer__score{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 20px 0px;
+    display: flex;
+}
+
+.person__score span, .computer__score span{
+    margin-left: 5px;
+}
+
+.computer__choice, .person__choice{
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.computer__choice .far, .person__choice .far{
+    font-size: 60px;
+    cursor: pointer;
+}
+.computer__choice .far.active, .person__choice .far.active{
+    color: #306844;
+}
+
+.computer__choice .far, #color_computer{
+    color: #dc3545;
+}
+
+.person__choice .far, #color_person{
+    color: #ffc107;
+}
+#color_computer, #color_person{
+    display: none;
+}
+
+.refresh{
+    font-size: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.result{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#name_person_choice{
+    color: #306844;
+    display: none;
+}
+#name_computer_choice{
+    color: #17a2b8;
+    display: none;
+}
+
+
+@media screen and (max-width: 700px) {
+    .keobuabao{
+        width: 90vw;
+        margin-top: 20px;
+        height: 85vh;
+    }
+    .computer__choice .far, .person__choice .far{
+        font-size: 40px;
+    }
+    .result{
+        font-size: 20px;
+    }
+
+    .refresh {
+        margin-left: 8px;
+    }
+}
